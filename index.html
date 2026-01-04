@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Aurora - Huwa</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('lienzo-web.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 650px;
+            border: 1px solid #00d4ff;
+            box-shadow: 0px 0px 25px rgba(0, 212, 255, 0.3);
+        }
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        button {
+            background-color: #00d4ff;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ffffff;
+            transform: scale(1.05);
+        }
+        #info-display {
+            margin-top: 25px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+            min-height: 200px;
+        }
+        ul { padding-left: 20px; }
+        strong { color: #00d4ff; }
+        .highlight { color: #f0ad4e; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Proyecto Aurora</h1>
+        <p><i>"Materia gris en movimiento"</i></p>
+        
+        <div class="btn-container">
+            <button onclick="mostrar('quienes')">¿Quiénes Somos?</button>
+            <button onclick="mostrar('mision')">Misión y Visión</button>
+            <button onclick="mostrar('objetivos')">Objetivos y Empoderamiento</button>
+        </div>
+
+        <div id="info-display">Selecciona una opción para conocer nuestra propuesta de transformación social.</div>
+    </div>
+
+    <script>
+        function mostrar(seccion) {
+            const display = document.getElementById('info-display');
+            if(seccion === 'quienes') {
+                display.innerHTML = "<strong>¿Quiénes Somos?</strong><br><br>Somos una iniciativa de transformación nacida de la convicción de que el conocimiento es la energía más poderosa. El Proyecto Aurora es un semillero diseñado para que cada persona descubra su potencial técnico y creativo [cite: 2025-12-30].";
+            } else if(seccion === 'mision') {
+                display.innerHTML = "<strong>Misión:</strong> Facilitar que cada persona que use nuestra plataforma pueda comprar, vender y aprender con facilidad usando Huwa, una moneda estable que premia el esfuerzo educativo [cite: 2025-12-26].<br><br><strong>Visión:</strong> Ser el sello de calidad y producción reconocido globalmente, donde el aprendizaje técnico sea la base de una nueva economía digital [cite: 2025-12-30].";
+            } else if(seccion === 'objetivos') {
+                display.innerHTML = "<strong>Nuestros Pilares de Transformación:</strong><ul>" +
+                    "<li><strong>Semillero Aurora Kids:</strong> Formamos el futuro con cursos especializados de 20-25 min y 5 min de meditación inicial para potenciar la inteligencia y enfoque de los niños [cite: 2025-12-31, 2026-01-03].</li>" +
+                    "<li><strong>Empoderamiento Femenino:</strong> Creemos que la mujer es la clave para lograr cambios y transformaciones en la sociedad [cite: 2026-01-03]. Por ello, para la aprobación de múltiples llaves de acceso, <span class='highlight'>se requerirá</span> reservar siempre el cupo para las damas en formación [cite: 2026-01-02].</li>" +
+                    "<li><strong>Minería de Aprendizaje:</strong> Ganar Huwas a través del estudio, permitiendo que el conocimiento sea una herramienta económica sólida para la familia [cite: 2025-12-26].</li></ul>";
+            }
+        }
+    </script>
+
+</body>
+</html>
