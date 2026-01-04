@@ -8,89 +8,92 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('lienzo-web.png') no-repeat center center fixed;
+            background: #000b1a url('lienzo-web.png') no-repeat center center fixed;
             background-size: cover;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .main-card {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px solid #00d4ff;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+        h1 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .tagline {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        .menu-vertical {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            color: white;
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 35px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 650px;
-            border: 1px solid #00d4ff;
-            box-shadow: 0px 0px 25px rgba(0, 212, 255, 0.3);
-        }
-        .btn-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
         button {
-            background-color: #00d4ff;
-            color: #000;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
+            background: transparent;
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+            padding: 12px;
+            border-radius: 10px;
             font-weight: bold;
+            cursor: pointer;
             transition: 0.3s;
         }
         button:hover {
-            background-color: #ffffff;
-            transform: scale(1.05);
+            background: #00d4ff;
+            color: #000;
         }
-        #info-display {
+        #info-box {
             margin-top: 25px;
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 15px;
             text-align: left;
-            min-height: 200px;
+            min-height: 100px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
         }
-        ul { padding-left: 20px; }
-        strong { color: #00d4ff; }
         .highlight { color: #f0ad4e; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="main-card">
         <h1>Proyecto Aurora</h1>
-        <p><i>"Materia gris en movimiento"</i></p>
+        <p class="tagline">"Materia gris en movimiento"</p>
         
-        <div class="btn-container">
+        <div class="menu-vertical">
             <button onclick="mostrar('quienes')">¿Quiénes Somos?</button>
             <button onclick="mostrar('mision')">Misión y Visión</button>
-            <button onclick="mostrar('objetivos')">Objetivos y Empoderamiento</button>
+            <button onclick="mostrar('objetivos')">Empoderamiento Femenino</button>
         </div>
 
-        <div id="info-display">Selecciona una opción para conocer nuestra propuesta de transformación social.</div>
+        <div id="info-box">Selecciona una opción para comenzar.</div>
     </div>
 
     <script>
         function mostrar(seccion) {
-            const display = document.getElementById('info-display');
+            const box = document.getElementById('info-box');
             if(seccion === 'quienes') {
-                display.innerHTML = "<strong>¿Quiénes Somos?</strong><br><br>Somos una iniciativa de transformación nacida de la convicción de que el conocimiento es la energía más poderosa. El Proyecto Aurora es un semillero diseñado para que cada persona descubra su potencial técnico y creativo [cite: 2025-12-30].";
+                box.innerHTML = "<strong>¿Quiénes Somos?</strong><br>Un semillero de conocimiento diseñado para que cada persona descubra su potencial técnico y creativo.";
             } else if(seccion === 'mision') {
-                display.innerHTML = "<strong>Misión:</strong> Facilitar que cada persona que use nuestra plataforma pueda comprar, vender y aprender con facilidad usando Huwa, una moneda estable que premia el esfuerzo educativo [cite: 2025-12-26].<br><br><strong>Visión:</strong> Ser el sello de calidad y producción reconocido globalmente, donde el aprendizaje técnico sea la base de una nueva economía digital [cite: 2025-12-30].";
+                box.innerHTML = "<strong>Misión y Visión:</strong><br>Crear una economía sólida con Huwa, donde el aprendizaje sea la moneda de cambio real.";
             } else if(seccion === 'objetivos') {
-                display.innerHTML = "<strong>Nuestros Pilares de Transformación:</strong><ul>" +
-                    "<li><strong>Semillero Aurora Kids:</strong> Formamos el futuro con cursos especializados de 20-25 min y 5 min de meditación inicial para potenciar la inteligencia y enfoque de los niños [cite: 2025-12-31, 2026-01-03].</li>" +
-                    "<li><strong>Empoderamiento Femenino:</strong> Creemos que la mujer es la clave para lograr cambios y transformaciones en la sociedad [cite: 2026-01-03]. Por ello, para la aprobación de múltiples llaves de acceso, <span class='highlight'>se requerirá</span> reservar siempre el cupo para las damas en formación [cite: 2026-01-02].</li>" +
-                    "<li><strong>Minería de Aprendizaje:</strong> Ganar Huwas a través del estudio, permitiendo que el conocimiento sea una herramienta económica sólida para la familia [cite: 2025-12-26].</li></ul>";
+                box.innerHTML = "<strong>Transformación Social:</strong><br>• <strong>Semillero Aurora Kids:</strong> Cursos de 20 min y 5 min de meditación para potenciar la inteligencia.<br>• <strong>Mujer:</strong> Motor de cambio social. Para la aprobación de múltiples llaves de acceso, <span class='highlight'>se requerirá</span> reservar siempre el cupo para las damas.";
             }
         }
     </script>
-
 </body>
 </html>
