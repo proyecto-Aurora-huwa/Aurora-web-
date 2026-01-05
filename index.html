@@ -3,97 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Huwa</title>
+    <title>Proyecto Aurora - Interactivo</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            background: #000b1a url('lienzo-web.png') no-repeat center center fixed;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* EL LIENZO DE FONDO */
+        .lienzo-container {
+            background: url('PROYECTO AURORA_20260104_151242_0000.png') no-repeat center center fixed;
             background-size: cover;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .main-card {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 40px;
-            border-radius: 25px;
-            border: 2px solid #00d4ff;
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-        }
-        h1 {
-            color: #00d4ff;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        .tagline {
-            font-style: italic;
-            margin-bottom: 30px;
-            font-size: 14px;
-            color: #ccc;
-        }
-        .menu-vertical {
+            height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
-        button {
-            background: transparent;
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
-            padding: 12px;
-            border-radius: 10px;
+
+        /* CAJA DE TEXTO DINÁMICA (Efecto Cristal) */
+        #info-box {
+            background: rgba(11, 11, 26, 0.8); /* Oscuro transparente */
+            backdrop-filter: blur(10px); /* Desenfoque elegante */
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #FFD700;
+            color: white;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 30px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10;
+            opacity: 0; /* Empieza invisible */
+            transition: opacity 0.5s ease;
+        }
+
+        /* CONTENEDOR DE BOTONES FLOTANTES */
+        .nav-aurora {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        /* BOTONES AMARILLOS (ALTO CONTRASTE) */
+        .btn-interactivo {
+            background-color: #FFD700;
+            color: #0b0b1a;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
             font-weight: bold;
+            text-transform: uppercase;
             cursor: pointer;
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.3);
             transition: 0.3s;
         }
-        button:hover {
-            background: #00d4ff;
-            color: #000;
+
+        .btn-interactivo:hover {
+            transform: translateY(-5px);
+            background-color: #00E5FF; /* Cambia a Cian al tocar */
         }
-        #info-box {
-            margin-top: 25px;
-            font-size: 15px;
-            text-align: left;
-            min-height: 100px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-        }
-        .highlight { color: #f0ad4e; font-weight: bold; }
+
+        .highlight { color: #FFD700; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <h1>Proyecto Aurora</h1>
-        <p class="tagline">"Materia gris en movimiento"</p>
+    <div class="lienzo-container">
         
-        <div class="menu-vertical">
-            <button onclick="mostrar('quienes')">¿Quiénes Somos?</button>
-            <button onclick="mostrar('mision')">Misión y Visión</button>
-            <button onclick="mostrar('objetivos')">Empoderamiento Femenino</button>
-        </div>
+        <div id="info-box">Toca un botón para conocer nuestra energía</div>
 
-        <div id="info-box">Selecciona una opción para comenzar.</div>
+        <div class="nav-aurora">
+            <button class="btn-interactivo" onclick="mostrar('quienes')">¿Quiénes Somos?</button>
+            <button class="btn-interactivo" onclick="mostrar('mision')">Misión y Visión</button>
+            <button class="btn-interactivo" onclick="mostrar('objetivos')">Objetivos</button>
+        </div>
     </div>
 
     <script>
-        function mostrar(seccion) {
+        function mostrar(tipo) {
             const box = document.getElementById('info-box');
-            if(seccion === 'quienes') {
-                box.innerHTML = "<strong>¿Quiénes Somos?</strong><br>Un semillero de conocimiento diseñado para que cada persona descubra su potencial técnico y creativo.";
-            } else if(seccion === 'mision') {
-                box.innerHTML = "<strong>Misión y Visión:</strong><br>Crear una economía sólida con Huwa, donde el aprendizaje sea la moneda de cambio real.";
-            } else if(seccion === 'objetivos') {
-                box.innerHTML = "<strong>Transformación Social:</strong><br>• <strong>Semillero Aurora Kids:</strong> Cursos de 20 min y 5 min de meditación para potenciar la inteligencia.<br>• <strong>Mujer:</strong> Motor de cambio social. Para la aprobación de múltiples llaves de acceso, <span class='highlight'>se requerirá</span> reservar siempre el cupo para las damas.";
+            box.style.opacity = "1"; // Hace visible la caja
+
+            if(tipo === 'quienes') {
+                box.innerHTML = "Somos un semillero diseñado para que cada ciudadano descubra su potencial creativo y técnico [cite: 2025-12-30].";
+            } else if(tipo === 'mision') {
+                box.innerHTML = "<strong>Misión:</strong> Facilitar el uso de <span class='highlight'>Huwa</span> para aprender y progresar [cite: 2025-12-26]. <br><br> <strong>Visión:</strong> Ser el sello de calidad y producción en Venezuela [cite: 2025-12-30].";
+            } else if(tipo === 'objetivos') {
+                box.innerHTML = "Para la seguridad y aprobación de llaves, <span class='highlight'>se requerirá</span> reservar el cupo para las damas en formación [cite: 2026-01-02].";
             }
         }
     </script>
+
 </body>
 </html>
