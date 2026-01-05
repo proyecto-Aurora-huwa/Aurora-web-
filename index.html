@@ -3,61 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Web Oficial</title>
+    <title>Proyecto Aurora - Interactivo</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100vh;
+            width: 100%;
             overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background-color: #0b0b1a;
         }
 
-        /* FONDO TOTAL: Llamada exacta al archivo de tu GitHub */
-        .contenedor-principal {
-            background: url('PROYECTO AURORA_20260104_151242_0000.png') no-repeat center center fixed;
+        /* FONDO: Aquí llamamos a tu lienzo exacto */
+        .contenedor-aurora {
+            background-image: url('PROYECTO%20AURORA_20260104_151242_0000.png');
+            background-repeat: no-repeat;
+            background-position: center;
             background-size: cover;
             height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end; /* Empuja los botones hacia la parte inferior */
-            padding-bottom: 100px; /* Ajusta la altura de los botones aquí */
+            justify-content: flex-end; /* Botones abajo como en tu foto */
+            padding-bottom: 120px;
         }
 
-        /* CAJA DE INFORMACIÓN (Efecto Cristal) */
+        /* CAJA DE TEXTO (Efecto Cristal) */
         #info-box {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
             color: white;
             padding: 20px;
             border-radius: 20px;
-            max-width: 80%;
+            max-width: 85%;
             text-align: center;
-            margin-bottom: 30px;
-            min-height: 80px;
+            margin-bottom: 40px;
+            min-height: 60px;
             display: flex;
             align-items: center;
-            border: 1px solid #FFD700; /* Borde amarillo para resaltar */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
 
-        /* CONTENEDOR DE BOTONES FLOTANTES */
-        .botones-flotantes {
+        /* BOTONES FLOTANTES AMARILLOS */
+        .nav-botones {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
             justify-content: center;
-            z-index: 10;
+            flex-wrap: wrap;
         }
 
-        /* ESTILO DE BOTÓN AURORA (Alto Contraste) */
         .btn-aurora {
-            background-color: #FFD700; /* Amarillo para resaltar sobre el morado */
+            background-color: #FFD700; /* Amarillo de tu foto */
             color: #0b0b1a;
             border: none;
             padding: 15px 30px;
@@ -65,14 +66,13 @@
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+            transition: 0.3s;
         }
 
         .btn-aurora:hover {
-            transform: translateY(-8px); /* Efecto de flotar más alto */
+            transform: translateY(-5px);
             background-color: #ffffff;
-            box-shadow: 0 15px 25px rgba(255, 215, 0, 0.5);
         }
 
         .resaltado { color: #FFD700; font-weight: bold; }
@@ -80,29 +80,29 @@
 </head>
 <body>
 
-    <div class="contenedor-principal">
+    <div class="contenedor-aurora">
         
-        <div id="info-box">Bienvenida al Proyecto Aurora</div>
+        <div id="info-box">Cargando energía Aurora...</div>
 
-        <div class="botones-flotantes">
-            <button class="btn-aurora" onclick="mostrar('mision')">Misión</button>
-            <button class="btn-aurora" onclick="mostrar('vision')">Visión</button>
-            <button class="btn-aurora" onclick="mostrar('objetivo')">Objetivo</button>
+        <div class="nav-botones">
+            <button class="btn-aurora" onclick="mostrar('somos')">¿Quiénes Somos?</button>
+            <button class="btn-aurora" onclick="mostrar('mision')">Misión y Visión</button>
+            <button class="btn-aurora" onclick="mostrar('objetivos')">Objetivos</button>
         </div>
-
+        
     </div>
 
     <script>
-        function mostrar(tipo) {
+        function mostrar(seccion) {
             const box = document.getElementById('info-box');
             box.style.opacity = "1";
 
-            if(tipo === 'mision') {
-                box.innerHTML = "<strong>Misión:</strong> Facilitar que cada persona pueda comprar, vender y aprender con facilidad usando <span class='resaltado'>Huwa</span> [cite: 2025-12-26].";
-            } else if(tipo === 'vision') {
-                box.innerHTML = "<strong>Visión:</strong> Ser el sello de calidad reconocido donde el aprendizaje técnico sea la base de la economía digital [cite: 2025-12-30].";
-            } else if(tipo === 'objetivo') {
-                box.innerHTML = "Para la seguridad y aprobación de llaves, <span class='resaltado'>se requerirá</span> reservar el cupo para las damas en formación [cite: 2026-01-02].";
+            if(seccion === 'somos') {
+                box.innerHTML = "Somos un semillero diseñado para que cada ciudadano descubra su potencial técnico y creativo.";
+            } else if(seccion === 'mision') {
+                box.innerHTML = "<strong>Misión:</strong> Facilitar el uso de <span class='resaltado'>Huwa</span> para aprender. <br> <strong>Visión:</strong> Ser el sello de calidad y producción en Venezuela.";
+            } else if(seccion === 'objetivos') {
+                box.innerHTML = "Para la aprobación de llaves, <span class='resaltado'>se requerirá</span> reservar el cupo para las damas en formación.";
             }
         }
     </script>
