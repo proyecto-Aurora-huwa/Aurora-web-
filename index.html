@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Interactivo</title>
+    <title>Proyecto Aurora - Web Oficial</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100vh;
             overflow: hidden;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0b1a;
         }
 
-        /* EL LIENZO DE FONDO */
-        .lienzo-container {
+        /* FONDO TOTAL: Llamada exacta al archivo de tu GitHub */
+        .contenedor-principal {
             background: url('PROYECTO AURORA_20260104_151242_0000.png') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
@@ -22,86 +23,86 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: relative;
+            justify-content: flex-end; /* Empuja los botones hacia la parte inferior */
+            padding-bottom: 100px; /* Ajusta la altura de los botones aquí */
         }
 
-        /* CAJA DE TEXTO DINÁMICA (Efecto Cristal) */
+        /* CAJA DE INFORMACIÓN (Efecto Cristal) */
         #info-box {
-            background: rgba(11, 11, 26, 0.8); /* Oscuro transparente */
-            backdrop-filter: blur(10px); /* Desenfoque elegante */
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid #FFD700;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
             color: white;
-            max-width: 500px;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 80%;
             text-align: center;
             margin-bottom: 30px;
-            min-height: 100px;
+            min-height: 80px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            border: 1px solid #FFD700; /* Borde amarillo para resaltar */
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 10;
-            opacity: 0; /* Empieza invisible */
-            transition: opacity 0.5s ease;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         /* CONTENEDOR DE BOTONES FLOTANTES */
-        .nav-aurora {
+        .botones-flotantes {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
             z-index: 10;
         }
 
-        /* BOTONES AMARILLOS (ALTO CONTRASTE) */
-        .btn-interactivo {
-            background-color: #FFD700;
+        /* ESTILO DE BOTÓN AURORA (Alto Contraste) */
+        .btn-aurora {
+            background-color: #FFD700; /* Amarillo para resaltar sobre el morado */
             color: #0b0b1a;
             border: none;
-            padding: 15px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.3);
-            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .btn-interactivo:hover {
-            transform: translateY(-5px);
-            background-color: #00E5FF; /* Cambia a Cian al tocar */
+        .btn-aurora:hover {
+            transform: translateY(-8px); /* Efecto de flotar más alto */
+            background-color: #ffffff;
+            box-shadow: 0 15px 25px rgba(255, 215, 0, 0.5);
         }
 
-        .highlight { color: #FFD700; font-weight: bold; }
+        .resaltado { color: #FFD700; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="lienzo-container">
+    <div class="contenedor-principal">
         
-        <div id="info-box">Toca un botón para conocer nuestra energía</div>
+        <div id="info-box">Bienvenida al Proyecto Aurora</div>
 
-        <div class="nav-aurora">
-            <button class="btn-interactivo" onclick="mostrar('quienes')">¿Quiénes Somos?</button>
-            <button class="btn-interactivo" onclick="mostrar('mision')">Misión y Visión</button>
-            <button class="btn-interactivo" onclick="mostrar('objetivos')">Objetivos</button>
+        <div class="botones-flotantes">
+            <button class="btn-aurora" onclick="mostrar('mision')">Misión</button>
+            <button class="btn-aurora" onclick="mostrar('vision')">Visión</button>
+            <button class="btn-aurora" onclick="mostrar('objetivo')">Objetivo</button>
         </div>
+
     </div>
 
     <script>
         function mostrar(tipo) {
             const box = document.getElementById('info-box');
-            box.style.opacity = "1"; // Hace visible la caja
+            box.style.opacity = "1";
 
-            if(tipo === 'quienes') {
-                box.innerHTML = "Somos un semillero diseñado para que cada ciudadano descubra su potencial creativo y técnico [cite: 2025-12-30].";
-            } else if(tipo === 'mision') {
-                box.innerHTML = "<strong>Misión:</strong> Facilitar el uso de <span class='highlight'>Huwa</span> para aprender y progresar [cite: 2025-12-26]. <br><br> <strong>Visión:</strong> Ser el sello de calidad y producción en Venezuela [cite: 2025-12-30].";
-            } else if(tipo === 'objetivos') {
-                box.innerHTML = "Para la seguridad y aprobación de llaves, <span class='highlight'>se requerirá</span> reservar el cupo para las damas en formación [cite: 2026-01-02].";
+            if(tipo === 'mision') {
+                box.innerHTML = "<strong>Misión:</strong> Facilitar que cada persona pueda comprar, vender y aprender con facilidad usando <span class='resaltado'>Huwa</span> [cite: 2025-12-26].";
+            } else if(tipo === 'vision') {
+                box.innerHTML = "<strong>Visión:</strong> Ser el sello de calidad reconocido donde el aprendizaje técnico sea la base de la economía digital [cite: 2025-12-30].";
+            } else if(tipo === 'objetivo') {
+                box.innerHTML = "Para la seguridad y aprobación de llaves, <span class='resaltado'>se requerirá</span> reservar el cupo para las damas en formación [cite: 2026-01-02].";
             }
         }
     </script>
