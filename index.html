@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Interactivo</title>
+    <title>Proyecto Aurora - Web Oficial</title>
     <style>
         body, html {
             margin: 0;
@@ -15,9 +15,10 @@
             background-color: #0b0b1a;
         }
 
-        /* FONDO: Aquí llamamos a tu lienzo exacto */
-        .contenedor-aurora {
-            background-image: url('PROYECTO%20AURORA_20260104_151242_0000.png');
+        /* CONFIGURACIÓN DEL LIENZO DE FONDO */
+        .contenedor-principal {
+            /* Llamada al nuevo nombre de archivo que pusiste */
+            background-image: url('webaurora.png'); 
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -26,13 +27,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end; /* Botones abajo como en tu foto */
-            padding-bottom: 120px;
+            justify-content: flex-end; /* Botones en la parte inferior */
+            padding-bottom: 100px;
         }
 
-        /* CAJA DE TEXTO (Efecto Cristal) */
-        #info-box {
-            background: rgba(0, 0, 0, 0.75);
+        /* CAJA DE INFORMACIÓN DINÁMICA (Efecto Cristal) */
+        #caja-info {
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
             color: white;
             padding: 20px;
@@ -43,22 +44,25 @@
             min-height: 60px;
             display: flex;
             align-items: center;
+            justify-content: center;
             border: 1px solid #FFD700;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             opacity: 0;
             transition: opacity 0.5s ease;
+            font-size: 1.1rem;
         }
 
-        /* BOTONES FLOTANTES AMARILLOS */
-        .nav-botones {
+        /* CONTENEDOR DE BOTONES FLOTANTES */
+        .botones-container {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
+        /* ESTILO DE BOTÓN AURORA (AMARILLO ALTO CONTRASTE) */
         .btn-aurora {
-            background-color: #FFD700; /* Amarillo de tu foto */
+            background-color: #FFD700;
             color: #0b0b1a;
             border: none;
             padding: 15px 30px;
@@ -80,11 +84,11 @@
 </head>
 <body>
 
-    <div class="contenedor-aurora">
+    <div class="contenedor-principal">
         
-        <div id="info-box">Cargando energía Aurora...</div>
+        <div id="caja-info">Bienvenida al Proyecto Aurora</div>
 
-        <div class="nav-botones">
+        <div class="botones-container">
             <button class="btn-aurora" onclick="mostrar('somos')">¿Quiénes Somos?</button>
             <button class="btn-aurora" onclick="mostrar('mision')">Misión y Visión</button>
             <button class="btn-aurora" onclick="mostrar('objetivos')">Objetivos</button>
@@ -94,15 +98,15 @@
 
     <script>
         function mostrar(seccion) {
-            const box = document.getElementById('info-box');
-            box.style.opacity = "1";
+            const info = document.getElementById('caja-info');
+            info.style.opacity = "1";
 
             if(seccion === 'somos') {
-                box.innerHTML = "Somos un semillero diseñado para que cada ciudadano descubra su potencial técnico y creativo.";
+                info.innerHTML = "Somos un semillero diseñado para que cada ciudadano descubra su potencial técnico y creativo.";
             } else if(seccion === 'mision') {
-                box.innerHTML = "<strong>Misión:</strong> Facilitar el uso de <span class='resaltado'>Huwa</span> para aprender. <br> <strong>Visión:</strong> Ser el sello de calidad y producción en Venezuela.";
+                info.innerHTML = "<strong>Misión:</strong> Facilitar el uso de <span class='resaltado'>Huwa</span> para aprender. <br> <strong>Visión:</strong> Ser el sello de calidad y producción en Venezuela.";
             } else if(seccion === 'objetivos') {
-                box.innerHTML = "Para la aprobación de llaves, <span class='resaltado'>se requerirá</span> reservar el cupo para las damas en formación.";
+                info.innerHTML = "Para la seguridad y aprobación de llaves, <span class='resaltado'>se requerirá</span> reservar el cupo para las damas en formación.";
             }
         }
     </script>
