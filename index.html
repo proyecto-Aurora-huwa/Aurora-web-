@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Web Oficial</title>
+    <title>Proyecto Aurora</title>
     <style>
         body, html {
             margin: 0;
@@ -15,98 +15,79 @@
             background-color: #0b0b1a;
         }
 
-        /* CONFIGURACIÓN DEL LIENZO DE FONDO */
-        .contenedor-principal {
-            /* Llamada al nuevo nombre de archivo que pusiste */
-            background-image: url('webaurora.png'); 
-            background-repeat: no-repeat;
-            background-position: center;
+        /* CONFIGURACIÓN DEL FONDO */
+        .fondo {
+            background-image: url('webaurora.png');
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end; /* Botones en la parte inferior */
-            padding-bottom: 100px;
+            justify-content: flex-end;
+            padding-bottom: 70px;
         }
 
-        /* CAJA DE INFORMACIÓN DINÁMICA (Efecto Cristal) */
-        #caja-info {
+        /* CUADRO DE TEXTO INTERACTIVO */
+        #texto-pantalla {
             background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
             color: white;
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 15px;
             max-width: 85%;
             text-align: center;
-            margin-bottom: 40px;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 25px;
             border: 1px solid #FFD700;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             opacity: 0;
-            transition: opacity 0.5s ease;
-            font-size: 1.1rem;
+            transition: 0.5s;
         }
 
-        /* CONTENEDOR DE BOTONES FLOTANTES */
-        .botones-container {
+        /* BOTONES FLOTANTES */
+        .botones-nav {
             display: flex;
             gap: 15px;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
-        /* ESTILO DE BOTÓN AURORA (AMARILLO ALTO CONTRASTE) */
         .btn-aurora {
             background-color: #FFD700;
-            color: #0b0b1a;
+            color: #1a1a1a;
             border: none;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: bold;
-            text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
-            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
         }
 
-        .btn-aurora:hover {
-            transform: translateY(-5px);
-            background-color: #ffffff;
-        }
-
-        .resaltado { color: #FFD700; font-weight: bold; }
+        .dorado { color: #FFD700; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="contenedor-principal">
-        
-        <div id="caja-info">Bienvenida al Proyecto Aurora</div>
+    <div class="fondo">
+        <div id="texto-pantalla">Información del Proyecto</div>
 
-        <div class="botones-container">
-            <button class="btn-aurora" onclick="mostrar('somos')">¿Quiénes Somos?</button>
-            <button class="btn-aurora" onclick="mostrar('mision')">Misión y Visión</button>
-            <button class="btn-aurora" onclick="mostrar('objetivos')">Objetivos</button>
+        <div class="botones-nav">
+            <button class="btn-aurora" onclick="ver('mision')">Misión</button>
+            <button class="btn-aurora" onclick="ver('vision')">Visión</button>
+            <button class="btn-aurora" onclick="ver('objetivos')">Objetivos</button>
         </div>
-        
     </div>
 
     <script>
-        function mostrar(seccion) {
-            const info = document.getElementById('caja-info');
-            info.style.opacity = "1";
+        function ver(tipo) {
+            const cuadro = document.getElementById('texto-pantalla');
+            cuadro.style.opacity = "1";
 
-            if(seccion === 'somos') {
-                info.innerHTML = "Somos un semillero diseñado para que cada ciudadano descubra su potencial técnico y creativo.";
-            } else if(seccion === 'mision') {
-                info.innerHTML = "<strong>Misión:</strong> Facilitar el uso de <span class='resaltado'>Huwa</span> para aprender. <br> <strong>Visión:</strong> Ser el sello de calidad y producción en Venezuela.";
-            } else if(seccion === 'objetivos') {
-                info.innerHTML = "Para la seguridad y aprobación de llaves, <span class='resaltado'>se requerirá</span> reservar el cupo para las damas en formación.";
+            if(tipo === 'mision') {
+                cuadro.innerHTML = "Facilitar que cada persona pueda comprar, vender y aprender con <span class='dorado'>Huwa</span> [cite: 2025-12-26].";
+            } else if(tipo === 'vision') {
+                cuadro.innerHTML = "Ser el sello de calidad reconocido donde el aprendizaje sea la base de la economía [cite: 2025-12-30].";
+            } else if(tipo === 'objetivos') {
+                cuadro.innerHTML = "Para la seguridad de las llaves, <span class='dorado'>se requerirá</span> reservar el cupo para las damas [cite: 2026-01-02].";
             }
         }
     </script>
