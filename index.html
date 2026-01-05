@@ -1,77 +1,104 @@
-<div align="center">
-  <img src="web4" alt="Banner Proyecto Aurora" width="100%">
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background-color: #1a2a6c; /* El azul de tu fondo */
+            font-family: sans-serif;
+            color: white;
+            text-align: center;
+        }
 
-<div align="center">
-  <img src="web4" alt="Banner Proyecto Aurora" width="100%">
-</div>
+        /* Contenedor principal que une imagen y botones */
+        .cabecera-aurora {
+            position: relative;
+            width: 100%;
+        }
 
-<div class="contenedor-botones">
-  <button class="boton-aurora" onclick="mostrarSeccion('quienes-somos')">¿Quiénes Somos?</button>
-  <button class="boton-aurora" onclick="mostrarSeccion('mision')">Nuestra Misión</button>
-  <button class="boton-aurora" onclick="mostrarSeccion('objetivos')">Objetivos Estratégicos</button>
-</div>
+        .banner-img {
+            width: 100%;
+            display: block;
+        }
 
-<div id="info-display" class="cuadro-texto">
-  <div id="quienes-somos" class="seccion-contenido" style="display:none;">
-    <p>Somos una iniciativa venezolana nacida de la convicción de que el conocimiento es la energía más poderosa para transformar realidades. El **Proyecto Aurora** es un semillero de "materia gris en movimiento" donde la ciencia y la tecnología se unen para que cada ciudadano descubra su potencial creativo. Bajo una visión de equidad, hemos creado **Huwa**, una moneda estable que recompensa el esfuerzo de aprender y facilita el intercambio comercial sólido y transparente.</p>
-  </div>
+        /* Aquí está el truco: margen negativo para subir los botones */
+        .contenedor-botones {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            margin-top: -5px; /* Esto hace que se peguen a la línea dorada */
+            background-color: transparent;
+        }
 
-  <div id="mision" class="seccion-contenido" style="display:none;">
-    <p>Nuestra misión es empoderar a comunidades en desarrollo a través de la formación tecnológica y financiera. Buscamos que el aprendizaje se convierta en un activo tangible, permitiendo que niños y mujeres generen sustento real para sus hogares mediante la educación. Queremos plantar las semillas del conocimiento hoy, para cosechar una economía independiente y digna mañana.</p>
-  </div>
+        .boton-aurora {
+            background-color: #3b4ca1;
+            color: white;
+            border: 2px solid #d4af37; /* El dorado de tu franja */
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-  <div id="objetivos" class="seccion-contenido" style="display:none;">
-    <ul>
-      <li><strong>Semillero Aurora Kids:</strong> Implementar talleres de robótica que integran 5 minutos de meditación para potenciar la inteligencia y el enfoque de los niños.</li>
-      <li><strong>Minería por Aprendizaje:</strong> Crear un ecosistema donde los jóvenes ganen <strong>Huwas</strong> al demostrar sus conocimientos científicos.</li>
-      <li><strong>Bienestar Familiar:</strong> Vincular el progreso educativo con el acceso a monedas <strong>Huwas</strong> que luego puedan usar.</li>
-      <li><strong>Equidad de Género:</strong> Damos prioridad a las damas como base de una sociedad y constructora de un hogar, permitiéndoles capacitarse y tener acceso a un espacio freelancer para transformar ese conocimiento en un medio de sustento.</li>
-    </ul>
-  </div>
-</div>
+        .boton-aurora:hover {
+            background-color: #d4af37;
+            color: #1a2a6c;
+        }
 
-<style>
-  .contenedor-botones { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    padding: 20px; 
-    margin-top: -10px; /* Para que quede pegado a la franja dorada */
-  }
-  
-  .boton-aurora {
-    background-color: #3b4ca1; 
-    color: white; 
-    border: 2px solid #d4af37;
-    padding: 12px 25px; 
-    border-radius: 25px; 
-    font-weight: bold; 
-    cursor: pointer;
-    transition: 0.3s;
-  }
+        .cuadro-texto {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: left;
+            display: none;
+        }
+    </style>
+</head>
+<body>
 
-  .boton-aurora:hover {
-    background-color: #d4af37;
-    color: #3b4ca1;
-  }
+    <div class="cabecera-aurora">
+        <img src="web4" alt="Banner Proyecto Aurora" class="banner-img">
+        
+        <div class="contenedor-botones">
+            <button class="boton-aurora" onclick="mostrarSeccion('quienes-somos')">¿Quiénes Somos?</button>
+            <button class="boton-aurora" onclick="mostrarSeccion('mision')">Nuestra Misión</button>
+            <button class="boton-aurora" onclick="mostrarSeccion('objetivos')">Objetivos Estratégicos</button>
+        </div>
+    </div>
 
-  .cuadro-texto {
-    max-width: 800px; 
-    margin: 20px auto; 
-    padding: 20px;
-    color: white; 
-    font-family: sans-serif; 
-    line-height: 1.6;
-    background: rgba(255, 255, 255, 0.1); /* Transparencia elegante */
-    border-radius: 15px;
-    text-align: left;
-  }
-</style>
+    <div id="info-display" class="cuadro-texto">
+        <div id="quienes-somos" class="seccion-contenido" style="display:none;">
+            <p>Somos una iniciativa venezolana nacida de la convicción de que el conocimiento es la energía más poderosa para transformar realidades. El **Proyecto Aurora** es un semillero de "materia gris en movimiento" donde la ciencia y la tecnología se unen para que cada ciudadano descubra su potencial creativo [cite: 2025-12-30].</p>
+        </div>
 
-<script>
-  function mostrarSeccion(id) {
-    document.querySelectorAll('.seccion-contenido').forEach(div => div.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-  }
-</script>
+        <div id="mision" class="seccion-contenido" style="display:none;">
+            <p>Nuestra misión es empoderar a comunidades en desarrollo a través de la formación tecnológica y financiera [cite: 2025-12-31, 2026-01-01]. Buscamos que el aprendizaje se convierta en un activo tangible, permitiendo que niños y mujeres generen sustento real para sus hogares [cite: 2025-12-26, 2025-12-30].</p>
+        </div>
+
+        <div id="objetivos" class="seccion-contenido" style="display:none;">
+            <ul>
+                <li><strong>Semillero Aurora Kids:</strong> Talleres de robótica con meditación para potenciar el enfoque infantil [cite: 2026-01-03].</li>
+                <li><strong>Minería por Aprendizaje:</strong> Ganar <strong>Huwas</strong> demostrando conocimientos científicos [cite: 2025-12-26].</li>
+                <li><strong>Bienestar Familiar:</strong> Vincular el progreso educativo con el acceso a monedas Huwa para sustento [cite: 2025-12-30].</li>
+                <li><strong>Equidad de Género:</strong> Prioridad a las damas para capacitarlas como freelancers y constructoras de hogar [cite: 2026-01-01].</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSeccion(id) {
+            document.getElementById('info-display').style.display = 'block';
+            document.querySelectorAll('.seccion-contenido').forEach(div => div.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
