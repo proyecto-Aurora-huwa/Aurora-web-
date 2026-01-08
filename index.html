@@ -3,111 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Huwa</title>
+    <title>Proyecto Aurora</title>
     <style>
         body {
-            background-color: #0b0e11; /* Fondo oscuro tipo Binance */
+            background-color: #0b0e11;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
-            text-align: center;
         }
 
-        /* Botón de Hamburguesa */
-        .hamburguesa {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            cursor: pointer;
-            background: #2b3139;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .hamburguesa div {
-            width: 25px;
-            height: 3px;
-            background-color: #f3ba2f;
-            margin: 5px 0;
-        }
-
-        /* Menú escondido */
-        #menu {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 250px;
-            height: 100%;
-            background: #1e2329;
-            transition: 0.3s;
-            padding-top: 60px;
-            text-align: left;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-        }
-        #menu a {
-            display: block;
-            padding: 15px 25px;
-            color: white;
-            text-decoration: none;
+        /* Barra Superior Elegante */
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #181c20;
             border-bottom: 1px solid #2b3139;
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
         }
 
-        /* Logos */
-        .contenedor-logos {
-            padding: 20px;
-            margin-top: 50px;
-        }
-        .logo-traspar {
-            max-width: 80%;
-            height: auto;
-        }
-        .atomo {
-            width: 150px;
-            margin-top: 30px;
-            filter: drop-shadow(0 0 8px #f3ba2f);
+        .navbar img {
+            width: 30px; /* Logo chiquito */
+            margin-right: 10px;
         }
 
-        .texto-huwa {
-            color: #f3ba2f;
-            font-size: 24px;
+        .navbar span {
             font-weight: bold;
-            margin-top: 10px;
+            letter-spacing: 1px;
+            font-size: 14px;
         }
+
+        /* Botón Hamburguesa */
+        .hamburguesa {
+            margin-left: auto;
+            cursor: pointer;
+            padding-right: 40px;
+        }
+
+        .hamburguesa div {
+            width: 22px; height: 2px;
+            background-color: #f3ba2f;
+            margin: 4px 0;
+        }
+
+        /* Menú Lateral */
+        #menu {
+            position: fixed; top: 0; right: -350px;
+            width: 300px; height: 100%;
+            background: #1e2329;
+            transition: 0.4s;
+            padding: 80px 20px;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        #menu.abierto { right: 0; }
+
+        #menu h3 { color: #f3ba2f; font-size: 16px; }
+        #menu p { font-size: 13px; color: #eaecef; line-height: 1.4; }
+
+        /* Contenido Central */
+        .hero {
+            margin-top: 150px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .texto-dorado { color: #f3ba2f; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="hamburguesa" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
+    <div class="navbar">
+        <img src="atomo.png" alt="Logo">
+        <span>PROYECTO AURORA</span>
+        <div class="hamburguesa" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
     </div>
 
     <nav id="menu">
-        <a href="#">Perfil / Configuración</a>
-        <a href="#">Quiénes Somos</a>
-        <a href="#">Visión y Objetivos</a>
-        <a href="#">Regístrate</a>
-        <p style="font-size: 11px; color: #848e9c; padding: 20px;">
-            Seguridad: para la aprobación de múltiples llaves **se requerirá** el consenso administrativo.
+        <h3>✨ Nuestra Esencia</h3>
+        <p>Aurora es el primer suspiro de luz que vence a la oscuridad. Representa a la mujer proactiva y resiliente.</p>
+        
+        <h3>🎯 Misión</h3>
+        <p>Empoderar a comunidades en desarrollo mediante la Minería Educativa y la estabilidad financiera.</p>
+        
+        <hr style="border: 0.1px solid #333;">
+        <p style="font-size: 11px; color: #848e9c;">
+            Seguridad: se requerirá aprobación multillave.
         </p>
     </nav>
 
-    <div class="contenedor-logos">
-        <img src="logo11.png" alt="Proyecto Aurora" class="logo-traspar">
-        <br>
-        <img src="atomo.png" alt="Huwa" class="atomo">
-        <div class="texto-huwa">HUWA</div>
-        <p>Semillero de Conocimiento</p>
+    <div class="hero">
+        <h1 style="font-size: 40px;">HUWA</h1>
+        <p class="texto-dorado">"Materia gris en movimiento"</p>
+        <p style="max-width: 600px; margin: 0 auto; color: #848e9c;">
+            Un ecosistema de aprendizaje y estabilidad financiera diseñado para comunidades en desarrollo.
+        </p>
     </div>
 
     <script>
         function toggleMenu() {
-            var menu = document.getElementById("menu");
-            if (menu.style.right === "0px") {
-                menu.style.right = "-300px";
-            } else {
-                menu.style.right = "0px";
-            }
+            document.getElementById("menu").classList.toggle("abierto");
         }
     </script>
 </body>
