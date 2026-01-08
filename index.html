@@ -1,18 +1,81 @@
-<div class="menu-hamburguesa" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --fondo-oscuro: #0b0e11;
+            --dorado-huwa: #f3ba2f;
+            --blanco: #ffffff;
+        }
 
-<nav id="menu-lateral" class="nav-oculto">
-    <ul>
-        <li><a href="#">Perfil / Configuración</a></li>
-        <li><a href="#">Quiénes Somos</a></li>
-        <li><a href="#">Visión y Objetivos</a></li>
-        <li><a href="#">Regístrate</a></li>
-        <hr>
-        <p style="color: #888; font-size: 12px; padding: 10px;">
-            Seguridad: se requerirá aprobación multillave.
-        </p>
-    </ul>
-</nav>
+        body {
+            background-color: var(--fondo-oscuro);
+            color: var(--blanco);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Encabezado con el Logo Transparente */
+        .header {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #1e2329 0%, #0b0e11 100%);
+        }
+
+        .logo-principal {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* El Átomo (Icono de la moneda Huwa) */
+        .atomo-container {
+            margin-top: 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .atomo-img {
+            width: 120px; /* Tamaño del sello de calidad */
+            filter: drop-shadow(0 0 10px var(--dorado-huwa));
+        }
+
+        /* Menú de Hamburguesa */
+        .boton-hamburguesa {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1001;
+            background: #2b3139;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .boton-hamburguesa div {
+            width: 25px; height: 3px;
+            background-color: var(--dorado-huwa);
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        #menu-lateral {
+            position: fixed; top: 0; right: -300px;
+            width: 280px; height: 100%;
+            background-color: #1e2329;
+            transition: 0.5s;
+            padding: 80px 20px;
+            z-index: 1000;
+            box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+        }
+
+        #menu-lateral.abierto { right: 0; }
+
+        #menu-lateral a {
+            display: block; color: #eaecef;
+            text-decoration: none; padding: 15px;
+            border-bottom: 1px solid #2b3
