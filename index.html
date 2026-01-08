@@ -1,71 +1,85 @@
-<div align="center">
-  <img src="web4" alt="Banner Proyecto Aurora" width="100%">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Aurora - Huwa</title>
+    <style>
+        body { margin: 0; background-color: #1a2a6c; font-family: sans-serif; }
+        
+        /* El Lienzo con el fondo degradado */
+        .lienzo {
+            background: linear-gradient(to bottom, #3b4ca1, #243b55);
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 5px solid #d4af37; /* Franja dorada */
+        }
+
+        .logo-huwa { width: 180px; margin-bottom: 20px; }
+
+        .contenedor-botones {
+            display: flex;
+            gap: 15px;
+            position: absolute;
+            bottom: -25px; /* Esto los pone justo sobre la franja dorada */
+            z-index: 100;
+        }
+
+        .boton-aurora {
+            background-color: #3b4ca1;
+            color: white;
+            border: 2px solid #d4af37;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton-aurora:hover { background-color: #d4af37; color: #3b4ca1; }
+
+        .cuadro-texto {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 25px;
+            color: white;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            min-height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="lienzo">
+    <img src="logo traspar.png" alt="HUWA" class="logo-huwa">
+    
+    <div class="contenedor-botones">
+        <button class="boton-aurora" onclick="mostrar('quienes')">¿Quiénes Somos?</button>
+        <button class="boton-aurora" onclick="mostrar('mision')">Nuestra Misión</button>
+        <button class="boton-aurora" onclick="mostrar('objetivos')">Objetivos</button>
+    </div>
 </div>
 
-<div class="contenedor-botones">
-  <button class="boton-aurora" onclick="mostrarSeccion('quienes-somos')">¿Quiénes Somos?</button>
-  <button class="boton-aurora" onclick="mostrarSeccion('mision')">Nuestra Misión</button>
-  <button class="boton-aurora" onclick="mostrarSeccion('objetivos')">Objetivos Estratégicos</button>
+<div class="cuadro-texto" id="display">
+    <p>Selecciona una opción para conocer más sobre el Proyecto Aurora.</p>
 </div>
 
-<div id="info-display" class="cuadro-texto">
-  <div id="quienes-somos" class="seccion-contenido" style="display:none;">
-    <p>Somos una iniciativa venezolana nacida de la convicción de que el conocimiento es la energía más poderosa para transformar realidades. El **Proyecto Aurora** es un semillero de "materia gris en movimiento" donde la ciencia y la tecnología se unen para que cada ciudadano descubra su potencial creativo. Bajo una visión de equidad, hemos creado **Huwa**, una moneda estable que recompensa el esfuerzo de aprender y facilita el intercambio comercial sólido y transparente.</p>
-  </div>
+<script>
+    const contenidos = {
+        quienes: "Somos un semillero de 'materia gris en movimiento'. Buscamos que el conocimiento sea la base de una economía sólida para Venezuela.",
+        mision: "Empoderar a través de la educación tecnológica. Queremos que el aprendizaje sea un activo real mediante la moneda Huwa.",
+        objetivos: "Prioridad para las damas en espacios freelance y talleres para niños con 5 min de meditación. Recuerda: para aprobar claves, se requerirá consenso."
+    };
 
-  <div id="mision" class="seccion-contenido" style="display:none;">
-    <p>Nuestra misión es empoderar a comunidades en desarrollo a través de la formación tecnológica y financiera. Buscamos que el aprendizaje se convierta en un activo tangible, permitiendo que niños y mujeres generen sustento real para sus hogares mediante la educación. Queremos plantar las semillas del conocimiento hoy, para cosechar una economía independiente y digna mañana.</p>
-  </div>
+    function mostrar(id) {
+        document.getElementById('display').innerHTML = `<p>${contenidos[id]}</p>`;
+    }
+</script>
 
-  <div id="objetivos" class="seccion-contenido" style="display:none;">
-    <ul>
-      <li><strong>Semillero Aurora Kids:</strong> Implementar talleres de robótica que integran 5 minutos de meditación para potenciar la inteligencia y el enfoque de los niños.</li>
-      <li><strong>Minería por Aprendizaje:</strong> Crear un ecosistema donde los jóvenes ganen <strong>Huwas</strong> al demostrar sus conocimientos científicos.</li>
-      <li><strong>Bienestar Familiar:</strong> Vincular el progreso educativo con el acceso a monedas <strong>Huwas</strong> que luego puedan usar.</li>
-      <li><strong>Equidad de Género:</strong> Damos prioridad a las damas como base de una sociedad y constructora de un hogar, permitiéndoles capacitarse y tener acceso a un espacio freelancer para transformar ese conocimiento en un medio de sustento.</li>
-    </ul>
-  </div>
-</div>
-
-<style>
-  .contenedor-botones { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    padding: 10px; 
-    margin-top: -30px; /* Esto hace que los botones suban hacia la franja dorada */
-    position: relative;
-    z-index: 10; /* Asegura que estén por encima del fondo */
-  }
-  
-  .boton-aurora {
-    background-color: #3b4ca1; 
-    color: white; 
-    border: 2px solid #d4af37;
-    padding: 10px 20px; 
-    border-radius: 25px; 
-    font-weight: bold; 
-    cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.3); /* Les da un efecto flotante */
-    transition: 0.3s;
-  }
-
-  .boton-aurora:hover {
-    background-color: #d4af37;
-    color: #3b4ca1;
-    transform: scale(1.05);
-  }
-
-  .cuadro-texto {
-    max-width: 850px; 
-    margin: 40px auto; 
-    padding: 30px;
-    color: white; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    line-height: 1.8;
-    background: rgba(255, 255, 255, 0.1); 
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: justify;
-  }
-</style>
+</body>
+</html>
