@@ -1,85 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora - Huwa</title>
-    <style>
-        body { margin: 0; background-color: #1a2a6c; font-family: sans-serif; }
-        
-        /* El Lienzo con el fondo degradado */
-        .lienzo {
-            background: linear-gradient(to bottom, #3b4ca1, #243b55);
-            height: 450px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-bottom: 5px solid #d4af37; /* Franja dorada */
-        }
-
-        .logo-huwa { width: 180px; margin-bottom: 20px; }
-
-        .contenedor-botones {
-            display: flex;
-            gap: 15px;
-            position: absolute;
-            bottom: -25px; /* Esto los pone justo sobre la franja dorada */
-            z-index: 100;
-        }
-
-        .boton-aurora {
-            background-color: #3b4ca1;
-            color: white;
-            border: 2px solid #d4af37;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .boton-aurora:hover { background-color: #d4af37; color: #3b4ca1; }
-
-        .cuadro-texto {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 25px;
-            color: white;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            min-height: 150px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="lienzo">
-    <img src="logo traspar.png" alt="HUWA" class="logo-huwa">
-    
-    <div class="contenedor-botones">
-        <button class="boton-aurora" onclick="mostrar('quienes')">¿Quiénes Somos?</button>
-        <button class="boton-aurora" onclick="mostrar('mision')">Nuestra Misión</button>
-        <button class="boton-aurora" onclick="mostrar('objetivos')">Objetivos</button>
-    </div>
+<div class="menu-hamburguesa" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
 
-<div class="cuadro-texto" id="display">
-    <p>Selecciona una opción para conocer más sobre el Proyecto Aurora.</p>
-</div>
-
-<script>
-    const contenidos = {
-        quienes: "Somos un semillero de 'materia gris en movimiento'. Buscamos que el conocimiento sea la base de una economía sólida para Venezuela.",
-        mision: "Empoderar a través de la educación tecnológica. Queremos que el aprendizaje sea un activo real mediante la moneda Huwa.",
-        objetivos: "Prioridad para las damas en espacios freelance y talleres para niños con 5 min de meditación. Recuerda: para aprobar claves, se requerirá consenso."
-    };
-
-    function mostrar(id) {
-        document.getElementById('display').innerHTML = `<p>${contenidos[id]}</p>`;
-    }
-</script>
-
-</body>
-</html>
+<nav id="menu-lateral" class="nav-oculto">
+    <ul>
+        <li><a href="#">Perfil / Configuración</a></li>
+        <li><a href="#">Quiénes Somos</a></li>
+        <li><a href="#">Visión y Objetivos</a></li>
+        <li><a href="#">Regístrate</a></li>
+        <hr>
+        <p style="color: #888; font-size: 12px; padding: 10px;">
+            Seguridad: se requerirá aprobación multillave.
+        </p>
+    </ul>
+</nav>
