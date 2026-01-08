@@ -32,42 +32,40 @@
     display: flex; 
     justify-content: center; 
     gap: 20px; 
-    padding: 20px; 
-    margin-top: -10px; /* Para que quede pegado a la franja dorada */
+    padding: 10px; 
+    margin-top: -30px; /* Esto hace que los botones suban hacia la franja dorada */
+    position: relative;
+    z-index: 10; /* Asegura que estén por encima del fondo */
   }
   
   .boton-aurora {
     background-color: #3b4ca1; 
     color: white; 
     border: 2px solid #d4af37;
-    padding: 12px 25px; 
+    padding: 10px 20px; 
     border-radius: 25px; 
     font-weight: bold; 
     cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3); /* Les da un efecto flotante */
     transition: 0.3s;
   }
 
   .boton-aurora:hover {
     background-color: #d4af37;
     color: #3b4ca1;
+    transform: scale(1.05);
   }
 
   .cuadro-texto {
-    max-width: 800px; 
-    margin: 20px auto; 
-    padding: 20px;
+    max-width: 850px; 
+    margin: 40px auto; 
+    padding: 30px;
     color: white; 
-    font-family: sans-serif; 
-    line-height: 1.6;
-    background: rgba(255, 255, 255, 0.1); /* Transparencia elegante */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.1); 
     border-radius: 15px;
-    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: justify;
   }
 </style>
-
-<script>
-  function mostrarSeccion(id) {
-    document.querySelectorAll('.seccion-contenido').forEach(div => div.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-  }
-</script>
