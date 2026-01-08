@@ -6,102 +6,110 @@
     <title>Proyecto Aurora</title>
     <style>
         body {
-            background-color: #0b0e11;
+            background-color: #0b0e11; /* Fondo oscuro profesional */
             color: white;
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
         }
 
-        /* Barra Superior Elegante */
+        /* Barra Superior - Simplicidad y Clase */
         .navbar {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #181c20;
-            border-bottom: 1px solid #2b3139;
+            padding: 15px 25px;
+            background-color: #0b0e11; /* Mismo fondo para que flote */
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
         }
 
         .navbar img {
-            width: 30px; /* Logo chiquito */
-            margin-right: 10px;
+            width: 55px; /* Tamaño ajustado para que el HW sea legible */
+            height: auto;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); /* Brillo sutil */
         }
 
         .navbar span {
-            font-weight: bold;
-            letter-spacing: 1px;
-            font-size: 14px;
+            font-weight: 300; /* Letra más fina para elegancia */
+            letter-spacing: 3px;
+            font-size: 16px;
+            color: #ffffff;
         }
 
-        /* Botón Hamburguesa */
+        /* Menú Hamburguesa a la derecha */
         .hamburguesa {
             margin-left: auto;
             cursor: pointer;
-            padding-right: 40px;
+            padding-right: 45px;
         }
 
         .hamburguesa div {
-            width: 22px; height: 2px;
+            width: 25px; height: 1px; /* Líneas más delgadas = más elegancia */
             background-color: #f3ba2f;
-            margin: 4px 0;
+            margin: 6px 0;
+        }
+
+        /* Contenido Central (Lienzo) */
+        .hero {
+            margin-top: 200px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+        }
+
+        .frase-oro {
+            color: #f3ba2f;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* Menú Lateral */
         #menu {
             position: fixed; top: 0; right: -350px;
             width: 300px; height: 100%;
-            background: #1e2329;
-            transition: 0.4s;
-            padding: 80px 20px;
+            background: #181c20;
+            transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            padding: 100px 30px;
             z-index: 999;
-            overflow-y: auto;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
         }
 
         #menu.abierto { right: 0; }
-
-        #menu h3 { color: #f3ba2f; font-size: 16px; }
-        #menu p { font-size: 13px; color: #eaecef; line-height: 1.4; }
-
-        /* Contenido Central */
-        .hero {
-            margin-top: 150px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .texto-dorado { color: #f3ba2f; font-weight: bold; }
+        #menu h3 { color: #f3ba2f; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        #menu p { color: #848e9c; line-height: 1.6; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <img src="atomo.png" alt="Logo">
+        <img src="atomo.png" alt="Sello Aurora HW">
         <span>PROYECTO AURORA</span>
+        
         <div class="hamburguesa" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
+            <div></div><div></div>
         </div>
     </div>
 
     <nav id="menu">
-        <h3>✨ Nuestra Esencia</h3>
-        <p>Aurora es el primer suspiro de luz que vence a la oscuridad. Representa a la mujer proactiva y resiliente.</p>
+        <h3>QUIÉNES SOMOS</h3>
+        <p>Aurora es la luz que vence la oscuridad, representando a la mujer proactiva que levanta cada hogar.</p>
         
-        <h3>🎯 Misión</h3>
-        <p>Empoderar a comunidades en desarrollo mediante la Minería Educativa y la estabilidad financiera.</p>
+        <h3>MISIÓN</h3>
+        <p>Transformar el aprendizaje en estabilidad financiera mediante la Minería Educativa.</p>
         
-        <hr style="border: 0.1px solid #333;">
-        <p style="font-size: 11px; color: #848e9c;">
-            Seguridad: se requerirá aprobación multillave.
-        </p>
+        <div style="margin-top: 50px; font-size: 10px; color: #444;">
+            SEGURIDAD: se requerirá aprobación multillave.
+        </div>
     </nav>
 
     <div class="hero">
-        <h1 style="font-size: 40px;">HUWA</h1>
-        <p class="texto-dorado">"Materia gris en movimiento"</p>
-        <p style="max-width: 600px; margin: 0 auto; color: #848e9c;">
-            Un ecosistema de aprendizaje y estabilidad financiera diseñado para comunidades en desarrollo.
-        </p>
+        <h1>HUWA</h1>
+        <p class="frase-oro">"Materia gris en movimiento"</p>
     </div>
 
     <script>
