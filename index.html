@@ -1,21 +1,73 @@
-.contenedor-botones {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 0;
-            /* Si la franja está arriba, usamos un margen que los acerque al título */
-            margin-top: 5px; 
-            margin-bottom: 20px; /* Espacio para que el contenido de abajo no se pegue */
-            background-color: transparent;
-        }
+<div align="center">
+  <img src="web4" alt="Banner Proyecto Aurora" width="100%">
+</div>
 
-        .boton-aurora {
-            background-color: #3b4ca1;
-            color: white;
-            border: 2px solid #d4af37; /* El sello de calidad de Huwa [cite: 2025-12-30] */
-            padding: 8px 18px;
-            border-radius: 10px; /* Un diseño más limpio para la parte superior */
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+<div class="contenedor-botones">
+  <button class="boton-aurora" onclick="mostrarSeccion('quienes-somos')">¿Quiénes Somos?</button>
+  <button class="boton-aurora" onclick="mostrarSeccion('mision')">Nuestra Misión</button>
+  <button class="boton-aurora" onclick="mostrarSeccion('objetivos')">Objetivos Estratégicos</button>
+</div>
+
+<div id="info-display" class="cuadro-texto">
+  <div id="quienes-somos" class="seccion-contenido" style="display:none;">
+    <p>Somos una iniciativa venezolana nacida de la convicción de que el conocimiento es la energía más poderosa para transformar realidades. El **Proyecto Aurora** es un semillero de "materia gris en movimiento" donde la ciencia y la tecnología se unen para que cada ciudadano descubra su potencial creativo. Bajo una visión de equidad, hemos creado **Huwa**, una moneda estable que recompensa el esfuerzo de aprender y facilita el intercambio comercial sólido y transparente.</p>
+  </div>
+
+  <div id="mision" class="seccion-contenido" style="display:none;">
+    <p>Nuestra misión es empoderar a comunidades en desarrollo a través de la formación tecnológica y financiera. Buscamos que el aprendizaje se convierta en un activo tangible, permitiendo que niños y mujeres generen sustento real para sus hogares mediante la educación. Queremos plantar las semillas del conocimiento hoy, para cosechar una economía independiente y digna mañana.</p>
+  </div>
+
+  <div id="objetivos" class="seccion-contenido" style="display:none;">
+    <ul>
+      <li><strong>Semillero Aurora Kids:</strong> Implementar talleres de robótica que integran 5 minutos de meditación para potenciar la inteligencia y el enfoque de los niños.</li>
+      <li><strong>Minería por Aprendizaje:</strong> Crear un ecosistema donde los jóvenes ganen <strong>Huwas</strong> al demostrar sus conocimientos científicos.</li>
+      <li><strong>Bienestar Familiar:</strong> Vincular el progreso educativo con el acceso a monedas <strong>Huwas</strong> que luego puedan usar.</li>
+      <li><strong>Equidad de Género:</strong> Damos prioridad a las damas como base de una sociedad y constructora de un hogar, permitiéndoles capacitarse y tener acceso a un espacio freelancer para transformar ese conocimiento en un medio de sustento.</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .contenedor-botones { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    padding: 20px; 
+    margin-top: -10px; /* Para que quede pegado a la franja dorada */
+  }
+  
+  .boton-aurora {
+    background-color: #3b4ca1; 
+    color: white; 
+    border: 2px solid #d4af37;
+    padding: 12px 25px; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .boton-aurora:hover {
+    background-color: #d4af37;
+    color: #3b4ca1;
+  }
+
+  .cuadro-texto {
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 20px;
+    color: white; 
+    font-family: sans-serif; 
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.1); /* Transparencia elegante */
+    border-radius: 15px;
+    text-align: left;
+  }
+</style>
+
+<script>
+  function mostrarSeccion(id) {
+    document.querySelectorAll('.seccion-contenido').forEach(div => div.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
