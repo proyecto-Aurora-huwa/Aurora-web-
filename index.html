@@ -1,31 +1,21 @@
-<style>
-    /* Estilo del contenedor para que los botones "abracen" la franja superior */
-    .contenedor-botones {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding: 0;
-        margin-top: -10px; /* Ajuste para que suban hacia la franja dorada */
-        margin-bottom: 30px;
-        position: relative;
-        z-index: 5;
-    }
+.contenedor-botones {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 0;
+            /* Si la franja está arriba, usamos un margen que los acerque al título */
+            margin-top: 5px; 
+            margin-bottom: 20px; /* Espacio para que el contenido de abajo no se pegue */
+            background-color: transparent;
+        }
 
-    .boton-aurora {
-        background-color: #3b4ca1; /* Azul institucional */
-        color: white;
-        border: 2px solid #d4af37; /* El dorado de seriedad de Huwa [cite: 2025-12-30] */
-        padding: 12px 24px;
-        border-radius: 0 0 15px 15px; /* Solo redondeado abajo para que "cuelguen" de la franja */
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
-        transition: 0.3s ease;
-    }
-
-    .boton-aurora:hover {
-        background-color: #d4af37;
-        color: #1a2a6c;
-        transform: translateY(3px); /* Efecto de presión al tocarlo */
-    }
-</style>
+        .boton-aurora {
+            background-color: #3b4ca1;
+            color: white;
+            border: 2px solid #d4af37; /* El sello de calidad de Huwa [cite: 2025-12-30] */
+            padding: 8px 18px;
+            border-radius: 10px; /* Un diseño más limpio para la parte superior */
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
