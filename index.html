@@ -10,6 +10,7 @@
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            padding: 0;
             overflow-x: hidden;
         }
 
@@ -17,33 +18,43 @@
         .navbar {
             display: flex;
             align-items: center;
-            padding: 8px 25px; /* Reduje el padding para que el logo toque casi los bordes */
+            padding: 0 25px;
             background-color: #181c20;
             border-bottom: 2px solid #f3ba2f;
             position: fixed;
-            top: 0; width: 100%; z-index: 1000;
+            top: 0; 
+            width: 100%; 
+            z-index: 1000;
             box-sizing: border-box;
-            height: 75px; /* Altura fija para controlar el tamaño del logo */
+            height: 80px; /* Altura ideal para el logo grande */
         }
 
-        /* Logo MAXIMIZADO: logo1111.png */
+        /* El Logo con Brillo de Átomo (Energía) */
         .navbar img { 
-            height: 65px; /* Logo mucho más grande para que se aprecie el átomo y las siglas */
+            height: 65px; 
             width: auto;
-            margin-right: 15px; 
-            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4)); /* Resplandor para el azul oscuro */
+            margin-right: 18px; 
+            /* Doble resplandor: uno blanco fuerte y uno dorado suave */
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) 
+                    drop-shadow(0 0 5px rgba(243, 186, 47, 0.4));
+            transition: 0.5s ease;
         }
 
-        /* Texto en Blanco al lado del logo grande */
+        .navbar img:hover {
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.95));
+            transform: scale(1.02);
+        }
+
+        /* Proyecto Aurora en Blanco */
         .navbar span { 
             font-weight: bold; 
             letter-spacing: 2px; 
             color: #ffffff; 
-            font-size: 14px; /* Un poco más pequeño para mantener la elegancia */
+            font-size: 15px;
             text-transform: uppercase;
         }
 
-        /* Botones Alargados Izquierda */
+        /* Contenedor de Botones Laterales */
         .contenedor-botones {
             position: fixed;
             left: 0;
@@ -71,15 +82,18 @@
             font-weight: bold;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
         }
 
         .btn-aurora:hover {
             background: #f3ba2f;
             color: #0b0e11;
             width: 250px;
+            padding-left: 35px;
+            box-shadow: 0 0 20px rgba(243, 186, 47, 0.3);
         }
 
-        /* Hero Section */
+        /* Sección Principal (Hero) */
         .hero {
             margin-top: 240px;
             text-align: center;
