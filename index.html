@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Aurora</title>
+    <title>Proyecto Aurora - Huwa</title>
     <style>
         body {
             background-color: #0b0e11;
             color: white;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            overflow-x: hidden;
         }
 
-        /* Barra Superior Elegante */
+        /* Barra Superior */
         .navbar {
             display: flex;
             align-items: center;
@@ -21,24 +22,26 @@
             border-bottom: 1px solid #2b3139;
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
+            box-sizing: border-box;
         }
 
+        /* Logo solicitado: logo 11.png */
         .navbar img {
-            width: 35px; /* Logo chiquito */
-            margin-right: 10px;
+            height: 35px; 
+            margin-right: 12px;
         }
 
         .navbar span {
             font-weight: bold;
             letter-spacing: 1px;
             font-size: 14px;
+            color: #eaecef;
         }
 
-        /* Botón Hamburguesa */
         .hamburguesa {
             margin-left: auto;
             cursor: pointer;
-            padding-right: 40px;
+            padding: 10px;
         }
 
         .hamburguesa div {
@@ -55,28 +58,75 @@
             transition: 0.4s;
             padding: 80px 20px;
             z-index: 999;
-            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
         }
 
         #menu.abierto { right: 0; }
-
-        #menu h3 { color: #f3ba2f; font-size: 16px; }
-        #menu p { font-size: 13px; color: #eaecef; line-height: 1.4; }
+        #menu h3 { color: #f3ba2f; font-size: 18px; margin-bottom: 10px; }
+        #menu p { font-size: 14px; color: #848e9c; line-height: 1.5; }
 
         /* Contenido Central */
         .hero {
-            margin-top: 150px;
+            margin-top: 180px;
             text-align: center;
             padding: 20px;
         }
 
-        .texto-dorado { color: #f3ba2f; font-weight: bold; }
+        .texto-dorado { color: #f3ba2f; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- BOTONES FLOTANTES --- */
+        .botones-flotantes {
+            position: fixed;
+            right: 20px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1001;
+        }
+
+        .btn-f {
+            background-color: #2b3139;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            transition: 0.3s;
+            border: 1px solid #474d57;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-f:hover {
+            background-color: #f3ba2f;
+            color: #000;
+            transform: translateX(-5px);
+        }
+
+        /* Iconos representativos (emojis para visualización rápida) */
+        .btn-f i { margin-left: 10px; font-style: normal; }
+
+        /* Adaptación móvil */
+        @media (max-width: 600px) {
+            .botones-flotantes {
+                right: 10px;
+                left: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .btn-f { font-size: 11px; padding: 10px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <img src="logotraspar.png" alt="Logo">
+        <img src="logo 11.png" alt="Logo Aurora">
         <span>PROYECTO AURORA</span>
         <div class="hamburguesa" onclick="toggleMenu()">
             <div></div><div></div><div></div>
@@ -85,23 +135,30 @@
 
     <nav id="menu">
         <h3>✨ Nuestra Esencia</h3>
-        <p>Aurora es el primer suspiro de luz que vence a la oscuridad. Representa a la mujer proactiva y resiliente.</p>
+        <p>Aurora es el primer suspiro de luz que vence a la oscuridad. Representa a la mujer proactiva y resiliente en Venezuela.</p>
         
         <h3>🎯 Misión</h3>
-        <p>Empoderar a comunidades en desarrollo mediante la Minería Educativa y la estabilidad financiera.</p>
+        <p>Empoderar mediante la Minería Educativa: ganar Huwa mientras se aprende.</p>
         
-        <hr style="border: 0.1px solid #333;">
-        <p style="font-size: 11px; color: #848e9c;">
-            Seguridad: se requerirá aprobación multillave.
+        <hr style="border: 0.1px solid #333; margin: 20px 0;">
+        <p style="font-size: 11px; color: #f3ba2f;">
+            ⚠️ Seguridad: se requerirá aprobación multillave para transacciones de red.
         </p>
     </nav>
 
     <div class="hero">
-        <h1 style="font-size: 40px;">HUWA</h1>
+        <h1 style="font-size: 55px; margin-bottom: 5px;">HUWA</h1>
         <p class="texto-dorado">"Materia gris en movimiento"</p>
-        <p style="max-width: 600px; margin: 0 auto; color: #848e9c;">
-            Un ecosistema de aprendizaje y estabilidad financiera diseñado para comunidades en desarrollo.
+        <p style="max-width: 600px; margin: 20px auto; color: #848e9c; font-size: 18px;">
+            Hacia una economía estable para comunidades en desarrollo.
         </p>
+    </div>
+
+    <div class="botones-flotantes">
+        <a href="#" class="btn-f">BILLETERA <i>💳</i></a>
+        <a href="#" class="btn-f">SECCIÓN FREELANCE <i>💼</i></a>
+        <a href="#" class="btn-f">CURSOS DAMAS <i>👩‍🏫</i></a>
+        <a href="#" class="btn-f">SEMILLEROS KIDS <i>🌱</i></a>
     </div>
 
     <script>
