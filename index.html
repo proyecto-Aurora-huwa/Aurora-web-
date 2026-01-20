@@ -17,7 +17,7 @@
         .navbar {
             display: flex;
             align-items: center;
-            padding: 12px 25px;
+            padding: 10px 20px;
             background-color: #181c20;
             border-bottom: 2px solid #f3ba2f;
             position: fixed;
@@ -25,19 +25,27 @@
             box-sizing: border-box;
         }
 
-        /* Ajuste del Logo logo1111.png */
-        .navbar img { 
-            height: 50px; /* Tamaño optimizado para visibilidad y elegancia */
-            width: auto;
-            margin-right: 15px; 
+        /* El recuadro blanco para que resalte tu logo azul */
+        .identidad-contenedor {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff; /* Fondo blanco para contraste */
+            padding: 5px 15px;
+            border-radius: 30px; /* Forma de cápsula */
+            box-shadow: 0 2px 10px rgba(255,255,255,0.1);
         }
 
-        /* Texto PROYECTO AURORA en Blanco */
-        .navbar span { 
+        .identidad-contenedor img { 
+            height: 40px; 
+            width: auto;
+            margin-right: 12px; 
+        }
+
+        .identidad-contenedor span { 
             font-weight: bold; 
-            letter-spacing: 2px; 
-            color: #ffffff; 
-            font-size: 15px;
+            letter-spacing: 1px; 
+            color: #000000; /* Texto negro sobre fondo blanco */
+            font-size: 14px;
             text-transform: uppercase;
         }
 
@@ -65,9 +73,9 @@
             border-left: none; 
             border-radius: 0 12px 12px 0;
             transition: all 0.4s ease;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
         }
@@ -77,10 +85,9 @@
             color: #0b0e11;
             width: 240px;
             padding-left: 35px;
-            box-shadow: 0 0 25px rgba(243, 186, 47, 0.4);
         }
 
-        /* Contenido Central (Hero) */
+        /* Hero Section */
         .hero {
             margin-top: 220px;
             text-align: center;
@@ -100,41 +107,32 @@
         .lema {
             color: #f3ba2f;
             font-weight: bold;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             margin-top: 20px;
             font-size: 14px;
             text-transform: uppercase;
-        }
-
-        .descripcion {
-            max-width: 700px;
-            margin: 35px auto;
-            color: #848e9c;
-            font-size: 19px;
-            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <img src="logo1111.png" alt="Logo Aurora">
-        <span>PROYECTO AURORA</span>
+        <div class="identidad-contenedor">
+            <img src="logo1111.png" alt="Logo Aurora">
+            <span>PROYECTO AURORA</span>
+        </div>
     </div>
 
     <div class="contenedor-botones">
         <a href="billetera.html" class="btn-aurora">Billetera Huwa</a>
         <a href="freelance.html" class="btn-aurora">Sección Freelance</a>
         <a href="cursos.html" class="btn-aurora">Cursos Laborales</a>
-        <a href="kids.html" class="btn-aurora">Niños del Futuro</a>
+        <a href="kids.html" class="btn-aurora">Cursos Niños del Futuro</a>
     </div>
 
     <div class="hero">
         <h1>HUWA</h1>
         <p class="lema">"Materia gris en movimiento"</p>
-        <div class="descripcion">
-            Un ecosistema de aprendizaje y estabilidad financiera diseñado para empoderar comunidades en desarrollo a través del conocimiento.
-        </div>
     </div>
 
 </body>
