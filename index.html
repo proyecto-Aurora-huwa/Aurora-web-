@@ -13,32 +13,33 @@
             overflow-x: hidden;
         }
 
-        /* Barra Superior Limpia */
+        /* Barra Superior */
         .navbar {
             display: flex;
             align-items: center;
-            padding: 15px 25px;
+            padding: 8px 25px; /* Reduje el padding para que el logo toque casi los bordes */
             background-color: #181c20;
             border-bottom: 2px solid #f3ba2f;
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
             box-sizing: border-box;
+            height: 75px; /* Altura fija para controlar el tamaño del logo */
         }
 
-        /* Tu logo con el efecto de aura/resplandor */
+        /* Logo MAXIMIZADO: logo1111.png */
         .navbar img { 
-            height: 45px; 
+            height: 65px; /* Logo mucho más grande para que se aprecie el átomo y las siglas */
             width: auto;
             margin-right: 15px; 
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* El resplandor que sugerimos */
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4)); /* Resplandor para el azul oscuro */
         }
 
-        /* Nombre en Blanco Elegante */
+        /* Texto en Blanco al lado del logo grande */
         .navbar span { 
             font-weight: bold; 
             letter-spacing: 2px; 
             color: #ffffff; 
-            font-size: 16px;
+            font-size: 14px; /* Un poco más pequeño para mantener la elegancia */
             text-transform: uppercase;
         }
 
@@ -46,7 +47,7 @@
         .contenedor-botones {
             position: fixed;
             left: 0;
-            top: 50%;
+            top: 55%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -66,7 +67,7 @@
             border-left: none; 
             border-radius: 0 12px 12px 0;
             transition: all 0.4s ease;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -78,9 +79,9 @@
             width: 250px;
         }
 
-        /* Hero Section con tu frase poderosa */
+        /* Hero Section */
         .hero {
-            margin-top: 220px;
+            margin-top: 240px;
             text-align: center;
             padding: 20px;
         }
@@ -116,7 +117,7 @@
 <body>
 
     <div class="navbar">
-        <img src="logo1111.png" alt="Logo Aurora">
+        <img src="logo1111.png" alt="Logo Proyecto Aurora">
         <span>PROYECTO AURORA</span>
     </div>
 
