@@ -6,7 +6,7 @@
     <title>Proyecto Aurora - Huwa</title>
     <style>
         body {
-            background-color: #0b0e11; /* Negro profundo */
+            background-color: #0b0e11;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -17,180 +17,125 @@
         .navbar {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: #181c20;
-            border-bottom: 2px solid #f3ba2f; /* Línea dorada sutil */
+            border-bottom: 2px solid #f3ba2f;
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
             box-sizing: border-box;
         }
 
-        .navbar img {
-            height: 40px; /* Un poco más grande para que luzca */
-            margin-right: 12px;
+        /* Ajuste del Logo logo1111.png */
+        .navbar img { 
+            height: 50px; /* Tamaño optimizado para visibilidad y elegancia */
+            width: auto;
+            margin-right: 15px; 
         }
 
-        .navbar span {
-            font-weight: bold;
-            letter-spacing: 2px;
-            font-size: 14px;
-            color: #f3ba2f; /* Nombre en dorado */
+        /* Texto PROYECTO AURORA en Blanco */
+        .navbar span { 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            color: #ffffff; 
+            font-size: 15px;
+            text-transform: uppercase;
         }
 
-        .hamburguesa {
-            margin-left: auto;
-            cursor: pointer;
-        }
-
-        .hamburguesa div {
-            width: 25px; height: 3px;
-            background-color: #f3ba2f;
-            margin: 5px 0;
-            border-radius: 2px;
-        }
-
-        /* --- BOTONES FLOTANTES IZQUIERDA (FIJOS Y VISIBLES) --- */
+        /* --- BOTONES ALARGADOS IZQUIERDA --- */
         .contenedor-botones {
             position: fixed;
-            left: 15px;
-            top: 55%;
+            left: 0;
+            top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 12px;
             z-index: 1001;
         }
 
-        .bloque-boton {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .etiqueta-boton {
-            font-size: 10px;
-            color: #f3ba2f;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px black;
-        }
-
         .btn-aurora {
-            background: linear-gradient(145deg, #1e2329, #0b0e11);
+            background: linear-gradient(90deg, #1e2329, #0b0e11);
             color: #f3ba2f;
-            width: 55px;
-            height: 55px;
+            width: 210px; 
+            padding: 16px 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 12px;
             text-decoration: none;
             border: 1px solid #f3ba2f;
-            box-shadow: 0 5px 15px rgba(243, 186, 47, 0.2);
-            transition: 0.3s;
-            font-size: 22px;
+            border-left: none; 
+            border-radius: 0 12px 12px 0;
+            transition: all 0.4s ease;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
         }
 
         .btn-aurora:hover {
             background: #f3ba2f;
             color: #0b0e11;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(243, 186, 47, 0.5);
+            width: 240px;
+            padding-left: 35px;
+            box-shadow: 0 0 25px rgba(243, 186, 47, 0.4);
         }
 
-        /* Colores específicos para darle vida sin perder la elegancia */
-        .btn-billetera { border-color: #f3ba2f; } /* Dorado */
-        .btn-freelance { border-color: #00d2ff; } /* Azul tecnológico */
-        .btn-damas { border-color: #e91e63; }    /* Rosa/Fucsia fuerza */
-        .btn-kids { border-color: #4caf50; }     /* Verde crecimiento */
-
-        /* Contenido Central */
+        /* Contenido Central (Hero) */
         .hero {
-            margin-top: 180px;
+            margin-top: 220px;
             text-align: center;
             padding: 20px;
         }
 
         .hero h1 {
-            font-size: 65px;
+            font-size: clamp(55px, 12vw, 95px);
             margin: 0;
-            letter-spacing: 5px;
-            background: linear-gradient(to bottom, #fff, #f3ba2f);
+            letter-spacing: 10px;
+            background: linear-gradient(to bottom, #ffffff, #f3ba2f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
 
-        .texto-dorado { 
-            color: #f3ba2f; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            margin-top: 10px;
-            letter-spacing: 3px;
+        .lema {
+            color: #f3ba2f;
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin-top: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
         }
 
-        /* Menú Lateral */
-        #menu {
-            position: fixed; top: 0; right: -350px;
-            width: 300px; height: 100%;
-            background: #1e2329;
-            transition: 0.4s;
-            padding: 80px 20px;
-            z-index: 999;
-            border-left: 1px solid #f3ba2f;
+        .descripcion {
+            max-width: 700px;
+            margin: 35px auto;
+            color: #848e9c;
+            font-size: 19px;
+            line-height: 1.6;
         }
-        #menu.abierto { right: 0; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <img src="logo 11.png" alt="Logo">
+        <img src="logo1111.png" alt="Logo Aurora">
         <span>PROYECTO AURORA</span>
-        <div class="hamburguesa" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
     </div>
 
     <div class="contenedor-botones">
-        <div class="bloque-boton">
-            <span class="etiqueta-boton">Billetera</span>
-            <a href="#" class="btn-aurora btn-billetera">💰</a>
-        </div>
-        <div class="bloque-boton">
-            <span class="etiqueta-boton">Freelance</span>
-            <a href="#" class="btn-aurora btn-freelance">💼</a>
-        </div>
-        <div class="bloque-boton">
-            <span class="etiqueta-boton">Damas</span>
-            <a href="#" class="btn-aurora btn-damas">👩‍🏫</a>
-        </div>
-        <div class="bloque-boton">
-            <span class="etiqueta-boton">Kids</span>
-            <a href="#" class="btn-aurora btn-kids">🌱</a>
-        </div>
+        <a href="billetera.html" class="btn-aurora">Billetera Huwa</a>
+        <a href="freelance.html" class="btn-aurora">Sección Freelance</a>
+        <a href="cursos.html" class="btn-aurora">Cursos Laborales</a>
+        <a href="kids.html" class="btn-aurora">Niños del Futuro</a>
     </div>
 
     <div class="hero">
         <h1>HUWA</h1>
-        <p class="texto-dorado">"Materia gris en movimiento"</p>
-        <p style="max-width: 600px; margin: 25px auto; color: #848e9c; font-size: 18px; line-height: 1.6;">
-            La primera criptomoneda estable diseñada para transformar el conocimiento en libertad financiera.
-        </p>
+        <p class="lema">"Materia gris en movimiento"</p>
+        <div class="descripcion">
+            Un ecosistema de aprendizaje y estabilidad financiera diseñado para empoderar comunidades en desarrollo a través del conocimiento.
+        </div>
     </div>
 
-    <nav id="menu">
-        <h3 style="color:#f3ba2f">✨ Nuestra Esencia</h3>
-        <p style="color:#eaecef">Empoderando a la mujer y al semillero del futuro en Venezuela.</p>
-        <hr style="border: 0.1px solid #333;">
-        <p style="font-size: 12px; color: #f3ba2f; font-style: italic;">Seguridad: se requerirá aprobación multillave.</p>
-    </nav>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById("menu").classList.toggle("abierto");
-        }
-    </script>
 </body>
 </html>
