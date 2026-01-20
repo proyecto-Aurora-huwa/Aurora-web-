@@ -10,7 +10,6 @@
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            overflow-x: hidden;
         }
 
         /* Barra Superior */
@@ -25,7 +24,6 @@
             box-sizing: border-box;
         }
 
-        /* Logo solicitado: logo 11.png */
         .navbar img {
             height: 35px; 
             margin-right: 12px;
@@ -41,7 +39,6 @@
         .hamburguesa {
             margin-left: auto;
             cursor: pointer;
-            padding: 10px;
         }
 
         .hamburguesa div {
@@ -62,8 +59,49 @@
         }
 
         #menu.abierto { right: 0; }
-        #menu h3 { color: #f3ba2f; font-size: 18px; margin-bottom: 10px; }
-        #menu p { font-size: 14px; color: #848e9c; line-height: 1.5; }
+
+        /* --- BOTONES FLOTANTES IZQUIERDA --- */
+        .botones-flotantes {
+            position: fixed;
+            left: 0; /* Cambiado a la izquierda */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1001;
+        }
+
+        .btn-f {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            border-radius: 0 8px 8px 0; /* Redondeado solo a la derecha */
+            transition: 0.3s;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+            width: 160px;
+            margin-left: -120px; /* Efecto pestaña: solo sale el icono */
+        }
+
+        .btn-f:hover {
+            margin-left: 0; /* Se desliza hacia afuera al pasar el mouse */
+        }
+
+        .btn-f i {
+            margin-left: auto;
+            font-size: 18px;
+            font-style: normal;
+        }
+
+        /* Colores temáticos */
+        .btn-billetera { background: linear-gradient(90deg, #02aab0, #00cdac); border-left: 4px solid #fff; }
+        .btn-freelance { background: linear-gradient(90deg, #0052d4, #4364f7); border-left: 4px solid #fff; }
+        .btn-damas { background: linear-gradient(90deg, #6a11cb, #2575fc); border-left: 4px solid #fff; }
+        .btn-kids { background: linear-gradient(90deg, #f2994a, #f2c94c); border-left: 4px solid #fff; }
 
         /* Contenido Central */
         .hero {
@@ -72,54 +110,11 @@
             padding: 20px;
         }
 
-        .texto-dorado { color: #f3ba2f; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .texto-dorado { color: #f3ba2f; font-weight: bold; text-transform: uppercase; }
 
-        /* --- BOTONES FLOTANTES --- */
-        .botones-flotantes {
-            position: fixed;
-            right: 20px;
-            bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1001;
-        }
-
-        .btn-f {
-            background-color: #2b3139;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            transition: 0.3s;
-            border: 1px solid #474d57;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .btn-f:hover {
-            background-color: #f3ba2f;
-            color: #000;
-            transform: translateX(-5px);
-        }
-
-        /* Iconos representativos (emojis para visualización rápida) */
-        .btn-f i { margin-left: 10px; font-style: normal; }
-
-        /* Adaptación móvil */
+        /* Móvil */
         @media (max-width: 600px) {
-            .botones-flotantes {
-                right: 10px;
-                left: 10px;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .btn-f { font-size: 11px; padding: 10px; }
+            .btn-f { margin-left: -130px; width: 150px; }
         }
     </style>
 </head>
@@ -135,30 +130,24 @@
 
     <nav id="menu">
         <h3>✨ Nuestra Esencia</h3>
-        <p>Aurora es el primer suspiro de luz que vence a la oscuridad. Representa a la mujer proactiva y resiliente en Venezuela.</p>
-        
-        <h3>🎯 Misión</h3>
-        <p>Empoderar mediante la Minería Educativa: ganar Huwa mientras se aprende.</p>
-        
-        <hr style="border: 0.1px solid #333; margin: 20px 0;">
-        <p style="font-size: 11px; color: #f3ba2f;">
-            ⚠️ Seguridad: se requerirá aprobación multillave para transacciones de red.
-        </p>
+        <p>Aurora es el primer suspiro de luz que vence a la oscuridad.</p>
+        <hr style="border: 0.1px solid #333;">
+        <p style="font-size: 11px; color: #f3ba2f;">Seguridad: se requerirá aprobación multillave.</p>
     </nav>
+
+    <div class="botones-flotantes">
+        <a href="#" class="btn-f btn-billetera">BILLETERA <i>💰</i></a>
+        <a href="#" class="btn-f btn-freelance">FREELANCE <i>💼</i></a>
+        <a href="#" class="btn-f btn-damas">CURSOS DAMAS <i>👩‍🏫</i></a>
+        <a href="#" class="btn-f btn-kids">SEMILLEROS KIDS <i>🌱</i></a>
+    </div>
 
     <div class="hero">
         <h1 style="font-size: 55px; margin-bottom: 5px;">HUWA</h1>
         <p class="texto-dorado">"Materia gris en movimiento"</p>
-        <p style="max-width: 600px; margin: 20px auto; color: #848e9c; font-size: 18px;">
-            Hacia una economía estable para comunidades en desarrollo.
+        <p style="max-width: 600px; margin: 20px auto; color: #848e9c;">
+            Minería Educativa para el empoderamiento social.
         </p>
-    </div>
-
-    <div class="botones-flotantes">
-        <a href="#" class="btn-f">BILLETERA <i>💳</i></a>
-        <a href="#" class="btn-f">SECCIÓN FREELANCE <i>💼</i></a>
-        <a href="#" class="btn-f">CURSOS DAMAS <i>👩‍🏫</i></a>
-        <a href="#" class="btn-f">SEMILLEROS KIDS <i>🌱</i></a>
     </div>
 
     <script>
